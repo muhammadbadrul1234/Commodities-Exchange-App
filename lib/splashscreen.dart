@@ -10,9 +10,9 @@ class Splashscreen extends StatefulWidget {
 class _SplashscreenState extends State<Splashscreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    /*return Scaffold(
       body: Center(
-        child: Container(
+         child: Container(
           child: Text(
             'Dhaka Stock Exchange',
             style: TextStyle(
@@ -22,6 +22,25 @@ class _SplashscreenState extends State<Splashscreen> {
           ),
         ),
       ),
+    );*/
+    return MaterialApp(
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              Image.asset('assets/images/DSE_logo.png'),
+              Text(
+                'Dhaka Stock Exchange',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
+
   }
 }
