@@ -23,7 +23,7 @@ jobs:
         with:
           flutter-version: '3.3.6'
       - run: flutter pub get
-      - run: flutter test
+      - run: flutter run
       - run: flutter build apk --debug --split-per-abi
       - name: Push to Realease
         uses: ncipollo/release-action@v1
