@@ -15,16 +15,6 @@ void main() {
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
-    //Verify that the text is displayed
-    expect(find.text('Dhaka Stock Exchange'), findsOneWidget);
-    expect(find.text('Feel the new experience of Stock'), findsOneWidget);
-
-    // Verify that the button is displayed
-    expect(find.text('Getting Started'), findsOneWidget);
-
-    // Verify that the image is displayed
-    expect(find.byType(Image), findsOneWidget);
-
 
   });
 }
