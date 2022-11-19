@@ -40,6 +40,7 @@ class _SplashscreenState extends State<Splashscreen> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
+              SizedBox(height: 120),
               ButtonBar(
                 alignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -48,7 +49,7 @@ class _SplashscreenState extends State<Splashscreen> {
                       primary: Colors.white;
                       Navigator.pushNamed(context, '/login');
                     },
-                    child: Text('Login',
+                    child: Text('Getting Started',
                       style: GoogleFonts.poppins(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w700,
@@ -57,8 +58,8 @@ class _SplashscreenState extends State<Splashscreen> {
 
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(236, 39),
-                      primary: Colors.green,
-                      onPrimary: Colors.white,
+                      backgroundColor: Color(0xFF126172),
+                      foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),
@@ -66,6 +67,7 @@ class _SplashscreenState extends State<Splashscreen> {
                   ),
                 ],
               ),
+
             ],
           ),
         ),

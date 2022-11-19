@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/splashscreen.dart';
+import 'package:untitled/first_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Commodities very Exchange App',
+      debugShowCheckedModeBanner: false,
       home: Splashscreen(),
     );
   }
