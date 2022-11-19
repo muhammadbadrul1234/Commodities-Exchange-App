@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/first_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:untitled/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,26 +15,31 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Commodities very Exchange App',
+      routes: {
+        '/Login':(context) => const Login(),
+      },
       debugShowCheckedModeBanner: false,
       home: Splashscreen(),
     );
   }
 }
 
+
+
 // LOGIN PAGE
-class Login extends StatefulWidget {
-  const Login({super.key});
+//class Login extends StatefulWidget {
+  //const Login({super.key});
 
-  @override
-  State<Login> createState() => _LoginState();
-}
+  //@override
+  //State<Login> createState() => _LoginState();
+//}
 
-class _LoginState extends State<Login> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+//class _LoginState extends State<Login> {
+  //@override
+  //Widget build(BuildContext context) {
+    //return Container();
+  //}
+//}
 // END LOGIN PAGE
 
 //HOMEPAGE

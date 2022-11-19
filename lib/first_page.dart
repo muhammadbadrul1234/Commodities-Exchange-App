@@ -48,7 +48,7 @@ class _SplashscreenState extends State<Splashscreen> {
                   ElevatedButton(
                     onPressed: () {
                       primary: Colors.white;
-                      Navigator.pushNamed(context, '/login');
+                      Navigator.pushNamed(context, '/Login');
                     },
                     child: Text('Getting Started',
                       style: GoogleFonts.poppins(
