@@ -15,12 +15,56 @@ class _SplashscreenState extends State<Splashscreen> {
         body: Center(
           child: Column(
             children: <Widget>[
-              Image.asset('assets/images/DSE_logo.png'),
+              SizedBox(height: 110),
+              Image(
+              image: AssetImage('assets/images/DSE_logo.png'),
+                height:169 ,
+              ),
+              SizedBox(height: 47),
               Text('Dhaka Stock Exchange',
                 style: GoogleFonts.poppins(
-                  fontSize: 24.0,
+                  fontSize: 26.0,
                   fontWeight: FontWeight.w700,
                 ),
+              ),
+              SizedBox(height: 78),
+              Text('Feel the new experience of Stock',
+                style: GoogleFonts.poppins(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              Text('Market.',
+                style: GoogleFonts.poppins(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              ButtonBar(
+                alignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ElevatedButton(
+                    onPressed: () {
+                      primary: Colors.white;
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    child: Text('Login',
+                      style: GoogleFonts.poppins(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(236, 39),
+                      primary: Colors.green,
+                      onPrimary: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
