@@ -13,6 +13,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
+    // ),
     return MaterialApp(
       home: Scaffold(
         body: Center(
@@ -30,53 +31,87 @@ class _LoginState extends State<Login> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              //email field with rounded corner
-              Container(
-                margin: EdgeInsets.only(top: 50),
-                padding: EdgeInsets.only(left: 20),
-                width: 300,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  //background color of box
-                  //upper corner rounded lower corner not rounded
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(15),
-                    topLeft: Radius.circular(15),
-                ),
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: 'Email',
+              //email field with  dynamic icon
+              // Container(
+              //   margin: EdgeInsets.only(top: 50),
+              //   padding: EdgeInsets.only(left: 20),
+              //   decoration: BoxDecoration(
+              //     color: Colors.white,
+              //     borderRadius: BorderRadius.circular(10),
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.grey.withOpacity(0.5),
+              //         spreadRadius: 5,
+              //         blurRadius: 7,
+              //         offset: Offset(0, 3), // changes position of shadow
+              //       ),
+              //     ],
+              //   ),
+              //   child: TextField(
+              //     decoration: InputDecoration(
+              //       border: InputBorder.none,
+              //       hintText: 'Email',
+              //       icon: Icon(Icons.email),
+              //     ),
+              //   ),
+              // ),
+              //
+               Container(
+                 margin: EdgeInsets.only(top: 50),
+                 padding: EdgeInsets.only(left: 20),
+                 width: 300,
+                 height: 50,
+                 decoration: BoxDecoration(
+                   color: Colors.white,
+                   //background color of box
+                   //upper corner rounded lower corner not rounded
+                   borderRadius: BorderRadius.only(
+                     topRight: Radius.circular(15),
+                     topLeft: Radius.circular(15),),
+                 ),
+                 child: TextField(
+                   decoration: InputDecoration(
+                     border: InputBorder.none,
+                     hintText: 'Email',
+                        icon: Icon(Icons.email),
+                   ),
                   ),
                 ),
-              ),
+
               //password field with rounded corner with icon
               Container(
                 margin: EdgeInsets.only(top: 2),
                 padding: EdgeInsets.only(left: 20),
                 width: 300,
                 height: 50,
+
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(15),
                     bottomLeft: Radius.circular(15),
+
                   ),
                 ),
                 child: TextField(
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Password',
-                    suffixIcon: Icon(Icons.visibility_off),
+                      icon: Icon(Icons.lock),
+                    // password hidden
+
+
+
+
+
+
                   ),
                 ),
               ),
               //elevated login button green color
               Container(
                 margin: EdgeInsets.only(top: 20),
-                width: 300,
+                width: 100,
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {},
@@ -95,6 +130,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
               ),
+
 
               //forgot password
               Container(

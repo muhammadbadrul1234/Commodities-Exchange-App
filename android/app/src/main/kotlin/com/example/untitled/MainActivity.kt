@@ -1,4 +1,4 @@
-package com.example.untitled
+package com.ingeniousgang.ceapp
 
 import io.flutter.embedding.android.FlutterActivity
 

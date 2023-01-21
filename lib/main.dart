@@ -14,12 +14,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Commodities very Exchange App',
+      title: 'Commodities Exchange App',
       routes: {
         '/Login':(context) => const Login(),
       },
       debugShowCheckedModeBanner: false,
-      home: Splashscreen(),
+      home: Login(),
+      //home: Splashscreen(),
     );
   }
 }
