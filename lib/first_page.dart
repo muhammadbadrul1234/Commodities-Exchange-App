@@ -18,24 +18,27 @@ class _SplashscreenState extends State<Splashscreen> {
             children: <Widget>[
               SizedBox(height: 110),
               Image(
-              image: AssetImage('assets/images/DSE_logo.png'),
-                height:169 ,
+                image: AssetImage('assets/images/DSE_logo.png'),
+                height: 169,
               ),
               SizedBox(height: 47),
-              Text('Dhaka Stock Exchange',
+              Text(
+                'Commodities Exchange ',
                 style: GoogleFonts.poppins(
                   fontSize: 26.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
               SizedBox(height: 78),
-              Text('Feel the new experience of Stock',
+              Text(
+                'Feel the new experience of Stock',
                 style: GoogleFonts.poppins(
                   fontSize: 16.0,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              Text('Market.',
+              Text(
+                'Market.',
                 style: GoogleFonts.poppins(
                   fontSize: 16.0,
                   fontWeight: FontWeight.w700,
@@ -47,16 +50,17 @@ class _SplashscreenState extends State<Splashscreen> {
                 children: <Widget>[
                   ElevatedButton(
                     onPressed: () {
-                      primary: Colors.white;
+                      primary:
+                      Colors.white;
                       Navigator.pushNamed(context, '/Login');
                     },
-                    child: Text('Getting Started',
+                    child: Text(
+                      'Login',
                       style: GoogleFonts.poppins(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(236, 39),
                       backgroundColor: Color(0xFF126172),
@@ -68,7 +72,25 @@ class _SplashscreenState extends State<Splashscreen> {
                   ),
                 ],
               ),
-
+              Container(
+                margin: EdgeInsets.only(top: 0),
+                child: TextButton(
+                  onPressed: () {
+                    primary:
+                    Colors.white;
+                    Navigator.pushNamed(context, '/Signup');
+                  },
+                  child: Text(
+                    'Signup',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF126172),
+                    ),
+                  ),
+                ),
+              ),
+              //textbutton for sign up
             ],
           ),
         ),
