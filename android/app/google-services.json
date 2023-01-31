@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:242040908883:android:e699eb51dbad9a3b772aa6",
+        "mobilesdk_app_id": "1:242040908883:android:c8ddecd7e77ac2fe772aa6",
         "android_client_info": {
           "package_name": "com.ingeniousgang.ceapp"
         }
@@ -29,6 +29,13 @@
             {
               "client_id": "242040908883-3qi9rbu08dg317s5guk34gkm7kmq4ju4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "242040908883-56rb9ldsntsqfdkjs7glrl40m17lb6uc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ingeniousgang.ceapp"
+              }
             }
           ]
         }

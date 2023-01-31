@@ -1,12 +1,22 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/first_page.dart';
+import 'package:untitled/src/splash_screen/first_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:untitled/login_page.dart';
-import 'package:untitled/signup.dart';
+import 'package:untitled/src/login/login_page.dart';
+//import 'package:untitled/firebase_options.dart';
+import 'package:untitled/src/signup/signup.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'src/firebase/firebase_options.dart';
 
-void main() {
+
+Future <void> main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
+
+
 }
 
 class MyApp extends StatelessWidget {
@@ -21,31 +31,10 @@ class MyApp extends StatelessWidget {
         '/Login':(context) => const Login(),
         '/Signup':(context) => const Signup(),
       },
+      home: const Login(),
       debugShowCheckedModeBanner: false,
-      //home: Login(),
-      home: Splashscreen(),
-    );
+      );
   }
 }
+// END HOMEPAGE
 
-//HOMEPAGE
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
-  //intialize the firebase app
-  Future<FirebaseApp> initializeFirebase() async {
-    FirebaseApp app = await Firebase.initializeApp();
-    print(app.name);
-    return app;
-    //ss
-  }
-  @override
-  State<Homepage> createState() => _HomepageState();
-}
-
-class _HomepageState extends State<Homepage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-// END HOMEPAGE 

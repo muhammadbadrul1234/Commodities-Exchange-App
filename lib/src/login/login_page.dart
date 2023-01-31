@@ -137,14 +137,10 @@ class _LoginState extends State<Login> {
 
   //firebase auth
   Future<void> login() async {
-    print("entered login");
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(
               email: emailController.text, password: passwordController.text)
           .then((value) => Navigator.pushNamed(context, '/signup'))
           .catchError((e) => print(e));
-      print('User found for that email.');
-      print(emailController.text);
-      print(passwordController.text);
   }
 }
