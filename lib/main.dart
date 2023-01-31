@@ -9,14 +9,12 @@ import 'package:untitled/src/signup/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'src/firebase/firebase_options.dart';
 
-
-Future <void> main() async {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
-
-
 }
 
 class MyApp extends StatelessWidget {
@@ -28,12 +26,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Commodities Exchange App',
       routes: {
-        '/Login':(context) => const Login(),
-        '/Signup':(context) => const Signup(),
+        '/Login': (context) => const Login(),
+        '/Signup': (context) => const Signup(),
       },
-      home: const Login(),
+      home: const Signup(),
       debugShowCheckedModeBanner: false,
-      );
+    );
   }
 }
 // END HOMEPAGE
