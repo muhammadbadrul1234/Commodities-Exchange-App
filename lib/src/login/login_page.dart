@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -11,6 +13,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final emailController = TextEditingController(),
+      passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     // ),
@@ -33,31 +37,6 @@ class _LoginState extends State<Login> {
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              //email field with  dynamic icon
-              // Container(
-              //   margin: EdgeInsets.only(top: 50),
-              //   padding: EdgeInsets.only(left: 20),
-              //   decoration: BoxDecoration(
-              //     color: Colors.white,
-              //     borderRadius: BorderRadius.circular(10),
-              //     boxShadow: [
-              //       BoxShadow(
-              //         color: Colors.grey.withOpacity(0.5),
-              //         spreadRadius: 5,
-              //         blurRadius: 7,
-              //         offset: Offset(0, 3), // changes position of shadow
-              //       ),
-              //     ],
-              //   ),
-              //   child: TextField(
-              //     decoration: InputDecoration(
-              //       border: InputBorder.none,
-              //       hintText: 'Email',
-              //       icon: Icon(Icons.email),
-              //     ),
-              //   ),
-              // ),
-              //
               Container(
                 margin: EdgeInsets.only(top: 50),
                 padding: EdgeInsets.only(left: 20),
@@ -73,6 +52,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 child: TextField(
+                  controller: emailController,
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Email',
@@ -95,6 +75,7 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 child: TextField(
+                  controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
                     border: InputBorder.none,
@@ -110,7 +91,11 @@ class _LoginState extends State<Login> {
                 width: 100,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    await login();
+                    print("emailController.text");
+
+                  },
                   child: Text(
                     'Login',
                     style: GoogleFonts.poppins(
@@ -148,5 +133,18 @@ class _LoginState extends State<Login> {
         ),
       ),
     );
+  }
+
+  //firebase auth
+  Future<void> login() async {
+    print("entered login");
+      await FirebaseAuth.instance
+          .signInWithEmailAndPassword(
+              email: emailController.text, password: passwordController.text)
+          .then((value) => Navigator.pushNamed(context, '/signup'))
+          .catchError((e) => print(e));
+      print('User found for that email.');
+      print(emailController.text);
+      print(passwordController.text);
   }
 }

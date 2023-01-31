@@ -13,10 +13,73 @@ class _SplashscreenState extends State<Splashscreen> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          actions: [
+            PopupMenuButton(
+              icon: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)
+                      .copyWith(topRight: Radius.circular(0))
+              ),
+              padding: EdgeInsets.all(10),
+              elevation: 10,
+              color: Colors.grey.shade100,
+              //color: Colors.white,
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: 1,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.developer_board, color: Color(0xFF126172)),
+                          SizedBox(width: 10),
+                          Text('About Developers'
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                PopupMenuItem(
+                  child: Text('About App'),
+                  value: 2,
+                ),
+                PopupMenuItem(
+                  child: Text('Feedback'
+                  ),
+                  value: 2,
+                ),
+                PopupMenuItem(
+                  child: Text('Licences'),
+                  value: 2,
+                ),
+                PopupMenuItem(
+                  child: Text('Exit'),
+                  value: 2,
+                ),
+              ],
+              onSelected: (value) {
+                if (value == 1) {
+                  Navigator.pushNamed(context, '/Login');
+                } else if (value == 2) {
+                  Navigator.pushNamed(context, '/Signup');
+                }
+              },
+            ),
+          ],
+        ),
         body: Center(
           child: Column(
             children: <Widget>[
-              SizedBox(height: 110),
+              SizedBox(height: 20),
               Image(
                 image: AssetImage('assets/images/DSE_logo.png'),
                 height: 169,
@@ -98,3 +161,10 @@ class _SplashscreenState extends State<Splashscreen> {
     );
   }
 }
+
+
+
+
+
+
+
