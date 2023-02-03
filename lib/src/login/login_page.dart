@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:untitled/src/dashboard/dashboard.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -164,7 +165,11 @@ class _LoginState extends State<Login> {
     await FirebaseAuth.instance
         .signInWithEmailAndPassword(
             email: emailController.text, password: passwordController.text)
-        .then((value) => Navigator.pushNamed(context, '/signup'))
+        .then((value) => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => Dashboard(value: emailController.text))))
+        
+        
+       // Navigator.pushNamed(context, '/signup'))
         .catchError((e) => print(e));
   }
 }

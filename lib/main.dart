@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:untitled/src/splash_screen/first_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/src/login/login_page.dart';
-//import 'package:untitled/firebase_options.dart';
 import 'package:untitled/src/login/signup.dart';
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'src/firebase/firebase_options.dart';
+import 'src/dashboard/dashboard.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,8 +18,6 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,8 +25,11 @@ class MyApp extends StatelessWidget {
       routes: {
         '/Login': (context) => const Login(),
         '/Signup': (context) => const Signup(),
+        '/Dashboard': (context) => const Dashboard(value: "value"),
       },
-      home: const Splashscreen(),
+      home: const Login(),
+
+      //const Dashboard(value: "value"),
       debugShowCheckedModeBanner: false,
     );
   }
