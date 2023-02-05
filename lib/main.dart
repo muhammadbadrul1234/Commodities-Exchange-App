@@ -1,41 +1,38 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/first_page.dart';
+import 'package:untitled/src/splash_screen/first_page.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:untitled/login_page.dart';
-
-void main() {
+import 'package:untitled/src/login/login_page.dart';
+import 'package:untitled/src/login/signup.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'src/firebase/firebase_options.dart';
+import 'src/dashboard/dashboard.dart';
+//12121
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Commodities very Exchange App',
+      title: 'Commodities Exchange App',
       routes: {
-        '/Login':(context) => const Login(),
+        '/Login': (context) => const Login(),
+        '/Signup': (context) => const Signup(),
+        '/Dashboard': (context) => const Dashboard(value: "value"),
       },
+      home: const Login(),
+
+      //const Dashboard(value: "value"),
       debugShowCheckedModeBanner: false,
-      home: Splashscreen(),
     );
   }
 }
+// END HOMEPAGE
 
-//HOMEPAGE
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
-
-  @override
-  State<Homepage> createState() => _HomepageState();
-}
-
-class _HomepageState extends State<Homepage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-// END HOMEPAGE 
