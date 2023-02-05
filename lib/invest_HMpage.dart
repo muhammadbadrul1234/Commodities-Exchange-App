@@ -44,20 +44,14 @@ class Invest_HMPage extends StatefulWidget {
               Align(alignment: Alignment.topCenter,
               child: CardList(),
               ), //Align
-            ]
-
-          )
-              ],
-            ),
-          )
-        ],
-        ]
-          ),
-        ),
+            ], //children
+          ) //Column
+        ], //child
       ), //Stack
     ); //Scaffold
-  }
-}
+  } //Widget
+} //Invest_HMPage
+
 
 class CardList extends StatelessWidget {
   @override
@@ -66,7 +60,7 @@ class CardList extends StatelessWidget {
       child: CarouselSlider.builder(itemCount: cards.length,
         itemBuilder: (BuildContext context, int i, int index) {
          return Card_Design();
-        }
+        },
         options: CarouselOptions(initialPage: 0,enableInfiniteScroll: false,enlargeCenterPage: true)), //CarouselSlider
     ); //Container
   }
