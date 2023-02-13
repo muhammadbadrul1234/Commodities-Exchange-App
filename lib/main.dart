@@ -1,12 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/src/splash_screen/first_page.dart';
+import 'package:untitled/src/pages/homescreen.dart';
+import 'package:untitled/src/widgets/linechart_1/home.dart';
+import 'package:untitled/src/pages/first_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/src/login/login_page.dart';
 import 'package:untitled/src/login/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'src/firebase/firebase_options.dart';
 import 'src/dashboard/dashboard.dart';
+
 //12121
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,9 +28,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/Login': (context) => const Login(),
         '/Signup': (context) => const Signup(),
-        '/Dashboard': (context) => const Dashboard(value: "value"),
+        '/Dashboard': (context) => const Dashboard(),
       },
-      home: const Login(),
+      home: const HomeScreen(),
 
       //const Dashboard(value: "value"),
       debugShowCheckedModeBanner: false,

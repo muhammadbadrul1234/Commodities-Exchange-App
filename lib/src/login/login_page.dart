@@ -166,7 +166,7 @@ class _LoginState extends State<Login> {
         .signInWithEmailAndPassword(
             email: emailController.text, password: passwordController.text)
         .then((value) => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => Dashboard(value: emailController.text))))
+            builder: (context) => Dashboard())))
         
         
        // Navigator.pushNamed(context, '/signup'))
