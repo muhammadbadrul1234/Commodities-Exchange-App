@@ -29,18 +29,18 @@ class _HomeScreenState extends State<HomeScreen> {
             //mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(250, 20, 0, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(250, 20, 0, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Align(
+                    const Align(
                       alignment: AlignmentDirectional(0, -0.7),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0, 0),
+                      alignment: const AlignmentDirectional(0, 0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
                         child: Image.network(
@@ -55,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(-0.72, 0),
+                alignment: const AlignmentDirectional(-0.72, 0),
                 child: Text(
                   'DSE Index',
                   style: GoogleFonts.poppins(
@@ -65,32 +65,33 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(35, 0, 0, 0),
+                padding: const EdgeInsetsDirectional.fromSTEB(35, 0, 0, 0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(-0.72, 0),
+                      alignment: const AlignmentDirectional(-0.72, 0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 1, 75, 0),
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0, 1, 75, 0),
                         child: Text(
                           '6508.00',
                           style: GoogleFonts.poppins(
                             fontSize: 26.0,
                             fontWeight: FontWeight.w700,
-                            color: Color(0xFF3FBFA0),
+                            color: const Color(0xFF3FBFA0),
                           ),
                         ),
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.7, -0.25),
+                      alignment: const AlignmentDirectional(0.7, -0.25),
                       child: Text(
                         '+51.39 ',
                         style: GoogleFonts.poppins(
                           fontSize: 22.0,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xFF8E8E8E),
+                          color: const Color(0xFF8E8E8E),
                         ),
                       ),
                     ),
@@ -99,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       style: GoogleFonts.poppins(
                         fontSize: 22.0,
                         fontWeight: FontWeight.w500,
-                        color: Color(0xFF3FBFA0),
+                        color: const Color(0xFF3FBFA0),
                       ),
                     ),
                   ],
@@ -129,16 +130,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     lineBarsData: [
                       LineChartBarData(
                         spots: [
-                          FlSpot(0, 6500),
-                          FlSpot(2.6, 6579),
-                          FlSpot(4.9, 6109),
-                          FlSpot(6.8, 6259),
-                          FlSpot(8, 6629),
-                          FlSpot(9.5, 6500),
-                          FlSpot(11, 6245),
+                          const FlSpot(0, 6500),
+                          const FlSpot(2.6, 6579),
+                          const FlSpot(4.9, 6109),
+                          const FlSpot(6.8, 6259),
+                          const FlSpot(8, 6629),
+                          const FlSpot(9.5, 6500),
+                          const FlSpot(11, 6245),
                         ],
                         isCurved: true,
-                        color: Color(0xFFA4FCBA),
+                        color: const Color(0xFFA4FCBA),
                         barWidth: 1,
                         isStrokeCapRound: true,
                         dotData: FlDotData(
@@ -146,37 +147,69 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         belowBarData: BarAreaData(
                           show: true,
-                          color: Color(0xFFA4FCBA),
+                          color: const Color(0xFFA4FCBA),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              SizedBox(height: 47),
-              SizedBox(
-                height: 120,
+              const SizedBox(height: 10),
+              Align(
+                alignment: Alignment.center,
+                child: _createDataTable(),
+              ),
+              const SizedBox(height: 20),
+              Align(
+                alignment: Alignment.center,
+                //height: 120,
                 child: Container(
-                  child: Text(
-                    'Top Gainer Today',
-                    style: GoogleFonts.poppins(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.w700,
+                  height: 120,
+                  width: 350,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 104, 255, 142),
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
                     ),
                   ),
-                  width: 350,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF126172),
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(30),
-                      topLeft: Radius.circular(30),
-                    ),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Top Gainer Today',
+                        style: GoogleFonts.poppins(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      Text(
+                        'Top Gainer Today',
+                        style: GoogleFonts.poppins(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
+              const SizedBox(height: 10),
               SizedBox(
                 height: 120,
                 child: Container(
+                  alignment: Alignment.center,
+                  width: 350,
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 255, 104, 104),
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(20),
+                    ),
+                  ),
                   child: Text(
                     'Top Looser Today',
                     style: GoogleFonts.poppins(
@@ -184,12 +217,28 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 120,
+                child: Container(
+                  alignment: Alignment.center,
                   width: 350,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF126172),
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 255, 255, 255),
                     borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(30),
-                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    'Top Looser Today',
+                    style: GoogleFonts.poppins(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
@@ -207,7 +256,7 @@ class _HomeScreenState extends State<HomeScreen> {
           //padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
           //alignment: FractionalOffset.bottomCenter,
 
-          backgroundColor: Color(0xFF126172),
+          backgroundColor: const Color(0xFF126172),
           // type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
           onTap: (index) {
@@ -216,8 +265,9 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           },
           selectedItemColor: Colors.white,
+          // ignore: prefer_const_literals_to_create_immutables
           items: [
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_mini,
                 color: Color.fromARGB(255, 255, 255, 255),
@@ -225,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'Home',
               backgroundColor: Color(0xFF126172),
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.search_rounded,
                 color: Colors.white,
@@ -233,7 +283,7 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'Search',
               backgroundColor: Color(0xFF126172),
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.newspaper_rounded,
                 color: Colors.white,
@@ -241,7 +291,7 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'News',
               backgroundColor: Color(0xFF126172),
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.notifications,
                 color: Colors.white,
@@ -249,7 +299,7 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'Notification',
               backgroundColor: Color(0xFF126172),
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.person_3,
                 color: Colors.white,
@@ -261,5 +311,73 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  DataTable _createDataTable() {
+    return DataTable(
+      columns: _createColumns(),
+      rows: _createRows(),
+      columnSpacing: 18,
+      dividerThickness: 0,
+      dataRowHeight: 30,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          bottomRight: Radius.circular(15),
+          bottomLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+          topLeft: Radius.circular(15),
+        ), // this only make bottom rounded and not top
+        color: Color(0xFF126172),
+      ),
+      showBottomBorder: true,
+      border: TableBorder.symmetric(
+          inside: const BorderSide(
+              color: Color.fromARGB(255, 255, 255, 255), width: 1)),
+      headingRowHeight: 30,
+      headingTextStyle: const TextStyle(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+          color: Color.fromARGB(255, 0, 255, 170)),
+      headingRowColor: MaterialStateProperty.resolveWith(
+          (states) => const Color(0xFF126172)),
+      dataTextStyle: const TextStyle(
+          fontFamily: 'Poppins',
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          color: Color.fromARGB(255, 255, 255, 255)),
+    );
+  }
+
+  List<DataColumn> _createColumns() {
+    return [
+      const DataColumn(label: Text('Index')),
+      const DataColumn(label: Text('Value')),
+      const DataColumn(label: Text('Author')),
+      const DataColumn(label: Text('Author'))
+    ];
+  }
+
+  List<DataRow> _createRows() {
+    return [
+      const DataRow(cells: [
+        DataCell(Text('DSEX')),
+        DataCell(Text('6256.17307')),
+        DataCell(Text('-14.69931')),
+        DataCell(Text('-0.23441%'))
+      ]),
+      const DataRow(cells: [
+        DataCell(Text('DSES')),
+        DataCell(Text('1368.28323')),
+        DataCell(Text('-3.37738')),
+        DataCell(Text('-0.24623%'))
+      ]),
+      const DataRow(cells: [
+        DataCell(Text('DS30')),
+        DataCell(Text('2226.65884')),
+        DataCell(Text('-5.43127')),
+        DataCell(Text('-0.24333%'))
+      ])
+    ];
   }
 }
