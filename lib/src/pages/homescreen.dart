@@ -171,10 +171,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(width: 10),
                     Container(
                       alignment: Alignment.center,
-                      height: 170,
+                      height: 190,
                       width: 350,
                       decoration: const BoxDecoration(
-                        color: Color(0xFFA4FCBA),
+                        //dcolor: Color(0xFFA4FCBA),
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(20),
                           topLeft: Radius.circular(20),
@@ -301,9 +301,7 @@ Widget displaycard(MongoDbStocks data) {
 
   return Card(
     color: getColor(),
-    shape: RoundedRectangleBorder(
-        borderRadius:
-            BorderRadius.circular(30).copyWith(topRight: Radius.circular(0))),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
     //shadowColor: const Color(0xFF126172),
     //elevation: 10,
     // ignore: sort_child_properties_last
