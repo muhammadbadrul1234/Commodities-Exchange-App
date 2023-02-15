@@ -1,5 +1,10 @@
+/*
+not fulfilled yet
+ */
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/src/ratingPage/ratingUs.dart';
 import 'package:untitled/src/splash_screen/first_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/src/login/login_page.dart';
@@ -7,7 +12,13 @@ import 'package:untitled/src/login/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'src/firebase/firebase_options.dart';
 import 'src/dashboard/dashboard.dart';
-//12121
+import 'package:untitled/src/contactUs/contactUs.dart';
+import 'package:untitled/src/investment/investmentPage.dart';
+import 'src/ratingPage/ratingUs.dart';
+import 'src/splash_screen/first_page.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:untitled/src/investment/lastInvestment.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -26,8 +37,10 @@ class MyApp extends StatelessWidget {
         '/Login': (context) => const Login(),
         '/Signup': (context) => const Signup(),
         '/Dashboard': (context) => const Dashboard(value: "value"),
+        '/RatingUs': (context) => const RatingUs(),
+        '/ContactUs': (context) => const ContactUs(),
       },
-      home: const Login(),
+      home: const LastInvestment(), //Connecting to the first page
 
       //const Dashboard(value: "value"),
       debugShowCheckedModeBanner: false,
