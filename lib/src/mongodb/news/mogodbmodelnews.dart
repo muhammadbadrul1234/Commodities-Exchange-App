@@ -16,20 +16,19 @@ class MongoDbModel {
   String tradingCode;
   String newsTitle;
   String news;
-  DateTime postDate;
+  String postDate;
 
   factory MongoDbModel.fromJson(Map<String, dynamic> json) => MongoDbModel(
         tradingCode: json["Trading Code"],
         newsTitle: json["News Title"],
         news: json["News"],
-        postDate: DateTime.parse(json["Post Date"]),
+        postDate: json["Post Date"],
       );
 
   Map<String, dynamic> toJson() => {
         "Trading Code": tradingCode,
         "News Title": newsTitle,
         "News": news,
-        "Post Date":
-            "${postDate.year.toString().padLeft(4, '0')}-${postDate.month.toString().padLeft(2, '0')}-${postDate.day.toString().padLeft(2, '0')}",
+        "Post Date": postDate,
       };
 }
