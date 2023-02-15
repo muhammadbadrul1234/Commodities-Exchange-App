@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/src/investment/investmentPage.dart';
 import 'package:untitled/src/mongodb/connection/mongodb.dart';
 import 'package:untitled/src/navigationbar/home.dart';
 import 'package:untitled/src/pages/homescreen.dart';

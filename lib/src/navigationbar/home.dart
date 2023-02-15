@@ -2,6 +2,7 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:untitled/src/investment/investmentPage.dart';
 import 'package:untitled/src/mongodb/connection/mongodb.dart';
 import 'package:untitled/src/pages/homescreen.dart';
 import 'package:untitled/src/pages/news.dart';
@@ -12,6 +13,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/src/login/login_page.dart';
 import 'package:untitled/src/login/signup.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:untitled/src/investment/investmentPage.dart';
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -27,7 +30,7 @@ class _HomeState extends State<Home> {
     Signup(),
     MongoDBNewsPage(),
     MongoDBStockDataPage(),
-    Splashscreen(),
+    InvestmentPage(),
   ];
 
   @override
@@ -80,10 +83,10 @@ class _HomeState extends State<Home> {
               ),
               const BottomNavigationBarItem(
                 icon: Icon(
-                  Icons.notifications,
+                  Icons.data_array,
                   color: Colors.white,
                 ),
-                label: 'Notification',
+                label: 'Stocks Data',
                 backgroundColor: Color(0xFF126172),
               ),
               const BottomNavigationBarItem(
