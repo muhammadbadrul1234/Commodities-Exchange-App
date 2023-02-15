@@ -15,7 +15,6 @@ class Investment extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
           ),
           title: Text("Investment tools"),
-
         ),
         body: Stack(children: [
           Align(
@@ -39,17 +38,13 @@ class Investment extends StatelessWidget {
             ),
           ),
           Column(
-            children: [
-              Market(),Recommended(),Return()
-            ],
+            children: [Market(), Recommended(), Return()],
           )
-
         ]));
   }
 }
 
 class Return extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -57,8 +52,11 @@ class Return extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text("Return on Investment",style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
-          SizedBox(height: 15,),
+          Text("Return on Investment",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          SizedBox(
+            height: 15,
+          ),
           Graph()
         ],
       ),
@@ -67,87 +65,80 @@ class Return extends StatelessWidget {
 }
 
 class Graph extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 120,
-      child: LineChart(
-          LineChartData(
-              minX:0,
-              maxX:12,
-              minY:0,
-              maxY:12,
-              gridData: FlGridData(show: false),
-              borderData: FlBorderData(show: false),
-              titlesData: FlTitlesData(
-                  leftTitles: SideTitles(showTitles: false),
-                  bottomTitles: SideTitles(showTitles: true,
-                    //  getTextStyles: (value) => TextStyle(color: Color(0xFF008CFF),fontWeight: FontWeight.bold,fontSize: 16),
-                      getTitles: (value){
-                        switch(value.toInt()){
-                          case 1:
-                            return 'J';
-                          case 2:
-                            return 'F';
-                          case 3:
-                            return 'M';
-                          case 4:
-                            return 'A';
-                          case 5:
-                            return 'M';
-                          case 6:
-                            return 'J';
-                          case 7:
-                            return 'J';
-                          case 8:
-                            return 'A';
-                          case 9:
-                            return 'S';
-                          case 10:
-                            return 'O';
-                          case 11:
-                            return 'N';
-                          case 12:
-                            return 'D';
-                        }
-                        return '';
-                      }
-                  )
+      child: LineChart(LineChartData(
+          minX: 0,
+          maxX: 12,
+          minY: 0,
+          maxY: 12,
+          gridData: FlGridData(show: false),
+          borderData: FlBorderData(show: false),
+          titlesData: FlTitlesData(
+              //leftTitles: SideTitles(showTitles: false),
+              // bottomTitles: SideTitles(showTitles: true,
+              //   getTextStyles: (value) => TextStyle(color: Color(0xFF008CFF),fontWeight: FontWeight.bold,fontSize: 16),
+              //     getTitles: (value){
+              //       switch(value.toInt()){
+              //         case 1:
+              //           return 'J';
+              //         case 2:
+              //           return 'F';
+              //         case 3:
+              //           return 'M';
+              //         case 4:
+              //           return 'A';
+              //         case 5:
+              //           return 'M';
+              //         case 6:
+              //           return 'J';
+              //         case 7:
+              //           return 'J';
+              //         case 8:
+              //           return 'A';
+              //         case 9:
+              //           return 'S';
+              //         case 10:
+              //           return 'O';
+              //         case 11:
+              //           return 'N';
+              //         case 12:
+              //           return 'D';
+              //       }
+              //       return '';
+              //     }
+              // )
               ),
-              lineBarsData: [
-                LineChartBarData(
-                    isCurved: true,
-                    colors: [
-                      Color(0xFF23B6E6),
-                      Color(0xFF02D39A)
-                    ],
-                    barWidth: 5,
-                    isStrokeCapRound: true,
-                    dotData: FlDotData(show: false),
-                    belowBarData: BarAreaData(show: true,
-
-                    ),
-                    aboveBarData:  BarAreaData(show: true,),
-                    spots: [
-                      FlSpot(0, 0),
-                      FlSpot(1, 3),
-                      FlSpot(2, 4),
-                      FlSpot(3, 6),
-                      FlSpot(4, 4),
-                      FlSpot(5, 6),
-                      FlSpot(6, 7),
-                      FlSpot(7, 8),
-                      FlSpot(8, 7),
-                      FlSpot(9, 9),
-                      FlSpot(10, 6),
-                      FlSpot(11, 8),
-                      FlSpot(12, 9),
-                    ]
-                )
-              ]
-          )
-      ),
+          lineBarsData: [
+            LineChartBarData(
+                isCurved: true,
+                barWidth: 5,
+                isStrokeCapRound: true,
+                dotData: FlDotData(show: false),
+                belowBarData: BarAreaData(
+                  show: true,
+                ),
+                aboveBarData: BarAreaData(
+                  show: true,
+                ),
+                spots: [
+                  FlSpot(0, 0),
+                  FlSpot(1, 3),
+                  FlSpot(2, 4),
+                  FlSpot(3, 6),
+                  FlSpot(4, 4),
+                  FlSpot(5, 6),
+                  FlSpot(6, 7),
+                  FlSpot(7, 8),
+                  FlSpot(8, 7),
+                  FlSpot(9, 9),
+                  FlSpot(10, 6),
+                  FlSpot(11, 8),
+                  FlSpot(12, 9),
+                ])
+          ])),
     );
   }
 }
@@ -162,24 +153,31 @@ class Recommended extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Recommended for you",style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
-              Text("See all",style: TextStyle(color: Colors.black54),)
+              Text("Recommended for you",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Text(
+                "See all",
+                style: TextStyle(color: Colors.black54),
+              )
             ],
           ),
           Column(
             children: [
-              RecommendedItem(name: recommendedList[0].name,
+              RecommendedItem(
+                  name: recommendedList[0].name,
                   subtitle: recommendedList[0].subtitle,
-                  value:recommendedList[0].value,
-                  icon:recommendedList[0].icon),
-              RecommendedItem(name: recommendedList[1].name,
+                  value: recommendedList[0].value,
+                  icon: recommendedList[0].icon),
+              RecommendedItem(
+                  name: recommendedList[1].name,
                   subtitle: recommendedList[1].subtitle,
-                  value:recommendedList[1].value,
-                  icon:recommendedList[1].icon),
-              RecommendedItem(name: recommendedList[2].name,
+                  value: recommendedList[1].value,
+                  icon: recommendedList[1].icon),
+              RecommendedItem(
+                  name: recommendedList[2].name,
                   subtitle: recommendedList[2].subtitle,
-                  value:recommendedList[2].value,
-                  icon:recommendedList[2].icon)
+                  value: recommendedList[2].value,
+                  icon: recommendedList[2].icon)
             ],
           )
         ],
@@ -193,7 +191,11 @@ class RecommendedItem extends StatelessWidget {
   final String subtitle;
   final String value;
   final String icon;
-  RecommendedItem({required this.name,required this.subtitle,required this.value,required this.icon});
+  RecommendedItem(
+      {required this.name,
+      required this.subtitle,
+      required this.value,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -202,29 +204,33 @@ class RecommendedItem extends StatelessWidget {
       margin: EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          border: Border.all(width: 0.2)
-      ),
+          border: Border.all(width: 0.2)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
               Container(
-                width:60,
-                height:60,
+                width: 60,
+                height: 60,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
-                    image: DecorationImage(image: AssetImage(icon))
-                ),
+                    image: DecorationImage(image: AssetImage(icon))),
               ),
               Container(
                 margin: EdgeInsets.only(left: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(name,
-                      style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
-                    Text(subtitle,style: TextStyle(color: Colors.black54),)
+                    Text(
+                      name,
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      subtitle,
+                      style: TextStyle(color: Colors.black54),
+                    )
                   ],
                 ),
               )
@@ -234,9 +240,9 @@ class RecommendedItem extends StatelessWidget {
             child: Text(
               value,
               style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.green,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.green,
               ),
             ),
           )
@@ -246,9 +252,7 @@ class RecommendedItem extends StatelessWidget {
   }
 }
 
-
 class Market extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -258,18 +262,33 @@ class Market extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Currency market",style:TextStyle(fontSize: 18,fontWeight: FontWeight.bold)),
-              Text("Open chart",style: TextStyle(color: Colors.black54),)
+              Text("Currency market",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              Text(
+                "Open chart",
+                style: TextStyle(color: Colors.black54),
+              )
             ],
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                Currency(currency: "EUR/USD",value: "14,321",),
-                Currency(currency: "USD/GBP",value: "11,321",),
-                Currency(currency: "USD/RUB",value: "10,321",)
+                Currency(
+                  currency: "EUR/USD",
+                  value: "14,321",
+                ),
+                Currency(
+                  currency: "USD/GBP",
+                  value: "11,321",
+                ),
+                Currency(
+                  currency: "USD/RUB",
+                  value: "10,321",
+                )
               ],
             ),
           )
@@ -282,7 +301,7 @@ class Market extends StatelessWidget {
 class Currency extends StatelessWidget {
   final String currency;
   final String value;
-  Currency({required this.currency,required this.value});
+  Currency({required this.currency, required this.value});
 
   @override
   Widget build(BuildContext context) {
@@ -291,18 +310,28 @@ class Currency extends StatelessWidget {
       width: 120,
       height: 90,
       decoration: BoxDecoration(
-          boxShadow: [BoxShadow(color: Color(0xFF333333).withOpacity(0.14),
-              blurRadius: 2,
-              offset: Offset(0,2))],
+          boxShadow: [
+            BoxShadow(
+                color: Color(0xFF333333).withOpacity(0.14),
+                blurRadius: 2,
+                offset: Offset(0, 2))
+          ],
           borderRadius: BorderRadius.all(Radius.circular(20)),
-          color: Colors.white
-      ),
+          color: Colors.white),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(currency,style: TextStyle(color: Colors.black54),),
-          SizedBox(height: 5,),
-          Text(value,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),)
+          Text(
+            currency,
+            style: TextStyle(color: Colors.black54),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Text(
+            value,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          )
         ],
       ),
     );

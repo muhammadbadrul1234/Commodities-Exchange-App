@@ -299,6 +299,7 @@ class _SignupState extends State<Signup> {
         .createUserWithEmailAndPassword(
             email: emailController.text, password: passwordController.text)
         .then((value) {
+          firebaseauth.currentUser!.updateDisplayName(nameController.text);
       final firestoreInstance = FirebaseFirestore.instance;
       firestoreInstance
           .collection("Users")
