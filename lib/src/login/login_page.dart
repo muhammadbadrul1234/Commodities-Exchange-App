@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:untitled/src/dashboard/dashboard.dart';
+import 'package:untitled/src/navigationbar/home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -128,7 +129,7 @@ class _LoginState extends State<Login> {
                             ),
 
                       //bb
-                      
+
                       style: ElevatedButton.styleFrom(
                         primary: Colors.green,
                         backgroundColor: Color(0xFF126172),
@@ -141,20 +142,21 @@ class _LoginState extends State<Login> {
                   //elevated login button green color
 
                   //forgot password
-                  if (!isKeyboard)Container(
-                    margin: EdgeInsets.only(top: 20),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Forgot Password?',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black,
+                  if (!isKeyboard)
+                    Container(
+                      margin: EdgeInsets.only(top: 20),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Forgot Password?',
+                          style: GoogleFonts.poppins(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
-                  ),
                 ],
               ),
             ),
@@ -167,11 +169,10 @@ class _LoginState extends State<Login> {
     await FirebaseAuth.instance
         .signInWithEmailAndPassword(
             email: emailController.text, password: passwordController.text)
-        .then((value) => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => Dashboard())))
-        
-        
-       // Navigator.pushNamed(context, '/signup'))
+        .then((value) => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => Home())))
+
+        // Navigator.pushNamed(context, '/signup'))
         .catchError((e) => print(e));
   }
 }
