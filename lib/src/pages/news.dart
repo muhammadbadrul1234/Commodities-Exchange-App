@@ -56,69 +56,7 @@ class _MongoDBNewsPageState extends State<MongoDBNewsPage> {
           },
         ),
       ),
-      // bottomNavigationBar: ClipRRect(
-      //   borderRadius: const BorderRadius.only(
-      //     topRight: Radius.circular(24),
-      //     topLeft: Radius.circular(24),
-      //   ),
-      //   child: BottomNavigationBar(
-      //     //padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-      //     //alignment: FractionalOffset.bottomCenter,
-
-      //     backgroundColor: const Color(0xFF126172),
-      //     // type: BottomNavigationBarType.fixed,
-      //     currentIndex: currentIndex,
-      //     onTap: (index) {
-      //       setState(() {
-      //         currentIndex = index;
-      //       });
-      //     },
-      //     selectedItemColor: Colors.white,
-      //     // ignore: prefer_const_literals_to_create_immutables
-      //     items: [
-      //       const BottomNavigationBarItem(
-      //         icon: Icon(
-      //           Icons.home_mini,
-      //           color: Color.fromARGB(255, 255, 255, 255),
-      //         ),
-      //         label: 'Home',
-      //         backgroundColor: Color(0xFF126172),
-      //       ),
-      //       const BottomNavigationBarItem(
-      //         icon: Icon(
-      //           Icons.search_rounded,
-      //           color: Colors.white,
-      //         ),
-      //         label: 'Search',
-      //         backgroundColor: Color(0xFF126172),
-      //       ),
-      //       const BottomNavigationBarItem(
-      //         icon: Icon(
-      //           Icons.newspaper_rounded,
-      //           color: Colors.white,
-      //         ),
-      //         label: 'News',
-      //         backgroundColor: Color(0xFF126172),
-      //       ),
-      //       const BottomNavigationBarItem(
-      //         icon: Icon(
-      //           Icons.notifications,
-      //           color: Colors.white,
-      //         ),
-      //         label: 'Notification',
-      //         backgroundColor: Color(0xFF126172),
-      //       ),
-      //       const BottomNavigationBarItem(
-      //         icon: Icon(
-      //           Icons.person_3,
-      //           color: Colors.white,
-      //         ),
-      //         label: 'Profile',
-      //         backgroundColor: Color(0xFF126172),
-      //       ),
-      //     ],
-      //   ),
-      // ),
+     
     );
   }
 }
