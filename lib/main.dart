@@ -1,3 +1,7 @@
+/*
+not fulfilled yet
+ */
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/src/investment/investmentPage.dart';
@@ -40,7 +44,7 @@ class MyApp extends StatelessWidget {
         '/Signup': (context) => const Signup(),
         '/Dashboard': (context) => const Dashboard(),
       },
-      home: const Home(),
+      home: const Splashscreen(),
 
       //const Dashboard(value: "value"),
       debugShowCheckedModeBanner: false,

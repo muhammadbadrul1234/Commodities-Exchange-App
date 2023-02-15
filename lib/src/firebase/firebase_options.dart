@@ -23,10 +23,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -55,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '242040908883',
     projectId: 'commodities-exchange-app',
     authDomain: 'commodities-exchange-app.firebaseapp.com',
+    databaseURL: 'https://commodities-exchange-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'commodities-exchange-app.appspot.com',
   );
 
@@ -63,6 +61,18 @@ class DefaultFirebaseOptions {
     appId: '1:242040908883:android:c8ddecd7e77ac2fe772aa6',
     messagingSenderId: '242040908883',
     projectId: 'commodities-exchange-app',
+    databaseURL: 'https://commodities-exchange-app-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'commodities-exchange-app.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyAHqduhoRq0_1J-SbOXGK1sg--HvnVZy88',
+    appId: '1:242040908883:ios:ab2d5ffaa3587451772aa6',
+    messagingSenderId: '242040908883',
+    projectId: 'commodities-exchange-app',
+    databaseURL: 'https://commodities-exchange-app-default-rtdb.asia-southeast1.firebasedatabase.app',
+    storageBucket: 'commodities-exchange-app.appspot.com',
+    iosClientId: '242040908883-56rb9ldsntsqfdkjs7glrl40m17lb6uc.apps.googleusercontent.com',
+    iosBundleId: 'com.ingeniousgang.ceapp',
   );
 }
