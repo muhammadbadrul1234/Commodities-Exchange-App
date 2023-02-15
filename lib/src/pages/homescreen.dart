@@ -162,85 +162,75 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
               Align(
                 alignment: Alignment.center,
-                //height: 120,
-                child: Container(
-                  height: 120,
-                  width: 350,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 104, 255, 142),
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(20),
-                      topLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                    ),
-                  ),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Top Gainer Today',
-                        style: GoogleFonts.poppins(
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.w700,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(width: 10),
+                    Container(
+                      alignment: Alignment.center,
+                      height: 120,
+                      //width: 350,
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 104, 255, 142),
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
                         ),
                       ),
-                      Text(
-                        'Top Gainer Today',
-                        style: GoogleFonts.poppins(
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.w700,
+                      child: Column(
+                        children: [
+                          Text(
+                            ' Top Gainer ',
+                            style: GoogleFonts.poppins(
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            ' Top Gainer ',
+                            style: GoogleFonts.poppins(
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Container(
+                      height: 120,
+                      //width: 350,
+                      decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 104, 255, 142),
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                          bottomLeft: Radius.circular(20),
                         ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              SizedBox(
-                height: 120,
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 350,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 255, 104, 104),
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      topLeft: Radius.circular(20),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Top Loser',
+                            style: GoogleFonts.poppins(
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          Text(
+                            'Top Loser',
+                            style: GoogleFonts.poppins(
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  child: Text(
-                    'Top Looser Today',
-                    style: GoogleFonts.poppins(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              SizedBox(
-                height: 120,
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 350,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      topLeft: Radius.circular(20),
-                    ),
-                  ),
-                  child: Text(
-                    'Top Looser Today',
-                    style: GoogleFonts.poppins(
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+                  ],
                 ),
               ),
             ],
