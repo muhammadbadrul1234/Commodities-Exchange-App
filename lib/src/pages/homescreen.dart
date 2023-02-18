@@ -177,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       alignment: Alignment.center,
                       child: Container(
                         alignment: Alignment.center,
-                        height: 350,
+                        height: 210,
                         width: 200,
                         decoration: const BoxDecoration(
                           //dcolor: Color(0xFFA4FCBA),
@@ -218,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       alignment: Alignment.center,
                       child: Container(
                         alignment: Alignment.center,
-                        height: 350,
+                        height: 210,
                         width: 200,
                         decoration: const BoxDecoration(
                           //dcolor: Color(0xFFA4FCBA),
@@ -258,15 +258,49 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+              SizedBox(height: 30),
+              SizedBox(
+                height: 40,
+                width: 340,
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 109, 109, 109),
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    'Top 10 List of Gainers',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w800,
+                      color: const Color(0xFF3FBFA0),
+                    ),
+                  ),
+                ),
+                //box decoreation
+              ),
               DataTable(
+                headingRowHeight: 50,
+                border: TableBorder.all(
+                  color: Color.fromARGB(255, 109, 109, 109),
+                  width: 4,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(20),
+                  ),
+                ),
                 columns: [
                   DataColumn(
                     label: Text(
-                      'Company',
+                      '  Company   ',
                       style: GoogleFonts.poppins(
-                        fontSize: 22.0,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xFF8E8E8E),
+                        color: Color.fromARGB(255, 109, 109, 109),
                       ),
                     ),
                   ),
@@ -274,19 +308,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: Text(
                       'Price',
                       style: GoogleFonts.poppins(
-                        fontSize: 22.0,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xFF8E8E8E),
+                        color: Color.fromARGB(255, 109, 109, 109),
                       ),
                     ),
                   ),
                   DataColumn(
                     label: Text(
-                      'Change',
+                      ' Change ',
                       style: GoogleFonts.poppins(
-                        fontSize: 22.0,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xFF8E8E8E),
+                        color: Color.fromARGB(255, 109, 109, 109),
                       ),
                     ),
                   ),
@@ -295,10 +329,21 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               //table builder widget
               Align(
-                alignment: Alignment.center,
+                //alignment: Alignment.bottomCenter,
+
                 child: Container(
-                  height: 350,
-                  width: 400,
+                  height: 340,
+                  width: 377,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 109, 109, 109),
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                    ),
+                  ),
+
+                  //alignment: FractionalOffset.center,
+
                   child: FutureBuilder(
                     future: MongoDatabase.getTop10Gainer(),
                     builder: (context, AsyncSnapshot snapshot) {
@@ -311,49 +356,79 @@ class _HomeScreenState extends State<HomeScreen> {
                           var totalData = snapshot.data.length;
                           print("Total Data: " + totalData.toString());
                           print("Data :" + snapshot.data.toString());
+
                           return ListView.builder(
                               itemCount: totalData,
                               itemBuilder: (context, index) {
                                 return Row(
                                   children: [
                                     Container(
-                                      width: 150,
+                                      height: 30,
+                                      width: 175,
+                                      decoration: BoxDecoration(
+                                          // border: Border.all(
+                                          //   color: Color(0xFF126172),
+                                          //   width: 1,
+                                          // ),
+                                          ),
                                       child: Text(
                                         snapshot.data[index]['TRADING CODE'],
+                                        textAlign: TextAlign.center,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 22.0,
+                                          fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
-                                          color: Color.fromARGB(255, 0, 0, 0),
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
                                         ),
                                       ),
                                     ),
+                                    SizedBox(height: 10),
                                     Container(
+                                      height: 30,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                          // border: Border.all(
+                                          //   color: Color(0xFF126172),
+                                          //   width: 1,
+                                          // ),
+                                          ),
+                                      child: Text(
+                                        snapshot.data[index]['HIGH'],
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 20),
+                                    Container(
+                                      alignment: Alignment.center,
                                       width: 80,
                                       decoration: BoxDecoration(
                                         border: Border.all(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          width: 20,
+                                          color: const Color(0xFF3FBFA0),
+                                          width: 1,
                                         ),
+                                        color: const Color(0xFF3FBFA0),
+                                        borderRadius: BorderRadius.circular(30),
                                       ),
                                       child: Text(
-                                        snapshot.data[index]['HIGH'],
+                                        snapshot.data[index]['% CHANGE'],
+                                        textAlign: TextAlign.center,
                                         style: GoogleFonts.poppins(
-                                          fontSize: 22.0,
+                                          fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
-                                          color: Color.fromARGB(255, 0, 0, 0),
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
                                         ),
-                                      ),
-                                    ),
-                                    Text(
-                                      snapshot.data[index]['% CHANGE'],
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 22.0,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color.fromARGB(255, 0, 0, 0),
                                       ),
                                     ),
                                   ],
                                 );
+                                SizedBox(height: 10);
                               });
                         } else {
                           return Text("No Data Found");
@@ -363,15 +438,49 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
+              SizedBox(height: 30),
+              SizedBox(
+                height: 40,
+                width: 340,
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 109, 109, 109),
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(20),
+                      topLeft: Radius.circular(20),
+                    ),
+                  ),
+                  child: Text(
+                    'Top 10 List of Loosers',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.w800,
+                      color: Color.fromARGB(255, 97, 30, 30),
+                    ),
+                  ),
+                ),
+                //box decoreation
+              ),
               DataTable(
+                headingRowHeight: 50,
+                border: TableBorder.all(
+                  color: Color.fromARGB(255, 109, 109, 109),
+                  width: 4,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(20),
+                  ),
+                ),
                 columns: [
                   DataColumn(
                     label: Text(
-                      'Company',
+                      '  Company   ',
                       style: GoogleFonts.poppins(
-                        fontSize: 22.0,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xFF8E8E8E),
+                        color: Color.fromARGB(255, 109, 109, 109),
                       ),
                     ),
                   ),
@@ -379,25 +488,138 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: Text(
                       'Price',
                       style: GoogleFonts.poppins(
-                        fontSize: 22.0,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xFF8E8E8E),
+                        color: Color.fromARGB(255, 109, 109, 109),
                       ),
                     ),
                   ),
                   DataColumn(
                     label: Text(
-                      'Change',
+                      ' Change ',
                       style: GoogleFonts.poppins(
-                        fontSize: 22.0,
+                        fontSize: 16.0,
                         fontWeight: FontWeight.w500,
-                        color: const Color(0xFF8E8E8E),
+                        color: Color.fromARGB(255, 109, 109, 109),
                       ),
                     ),
                   ),
                 ],
                 rows: [],
               ),
+              //table builder widget
+              Align(
+                //alignment: Alignment.bottomCenter,
+
+                child: Container(
+                  height: 340,
+                  width: 377,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 109, 109, 109),
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                    ),
+                  ),
+
+                  //alignment: FractionalOffset.center,
+
+                  child: FutureBuilder(
+                    future: MongoDatabase.getTop10Looser(),
+                    builder: (context, AsyncSnapshot snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        if (snapshot.hasData) {
+                          var totalData = snapshot.data.length;
+                          print("Total Data: " + totalData.toString());
+                          print("Data :" + snapshot.data.toString());
+
+                          return ListView.builder(
+                              itemCount: totalData,
+                              itemBuilder: (context, index) {
+                                return Row(
+                                  children: [
+                                    Container(
+                                      height: 30,
+                                      width: 175,
+                                      decoration: BoxDecoration(
+                                          // border: Border.all(
+                                          //   color: Color(0xFF126172),
+                                          //   width: 1,
+                                          // ),
+                                          ),
+                                      child: Text(
+                                        snapshot.data[index]['TRADING CODE'],
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 10),
+                                    Container(
+                                      height: 30,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                          // border: Border.all(
+                                          //   color: Color(0xFF126172),
+                                          //   width: 1,
+                                          // ),
+                                          ),
+                                      child: Text(
+                                        snapshot.data[index]['HIGH'],
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 20),
+                                    Container(
+                                      alignment: Alignment.center,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color:
+                                              Color.fromARGB(255, 191, 63, 63),
+                                          width: 1,
+                                        ),
+                                        color: Color.fromARGB(255, 191, 63, 63),
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                      child: Text(
+                                        snapshot.data[index]['% CHANGE'],
+                                        textAlign: TextAlign.center,
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                                SizedBox(height: 10);
+                              });
+                        } else {
+                          return Text("No Data Found");
+                        }
+                      }
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
             ],
           ),
         ),
