@@ -3,7 +3,7 @@ import 'package:mongo_dart/mongo_dart.dart';
 import 'constant.dart';
 
 class MongoDatabase {
-  static var db, collection, stockcollection, topgainer, toplooser;
+  static var db, collection, stockcollection, topgainer, toplooser,top10gainer;
   static connect() async {
     db = await Db.create(
         'mongodb+srv://admin:admin@cluster0.qdcrwel.mongodb.net/AllStock?retryWrites=true&w=majority');
@@ -15,6 +15,7 @@ class MongoDatabase {
     stockcollection = db.collection('StockData');
     topgainer = db.collection('TopGainer');
     toplooser = db.collection('TopLooser');
+    top10gainer = db.collection('Top10Gainer');
     return db;
   }
 
@@ -36,5 +37,9 @@ class MongoDatabase {
   static Future<List<Map<String, dynamic>>> getTopLooser() async {
     final arrData4 = await toplooser.find().toList();
     return arrData4;
+  }
+  static Future<List<Map<String, dynamic>>> getTop10Gainer() async {
+    final arrData5 = await top10gainer.find().toList();
+    return arrData5;
   }
 }

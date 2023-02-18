@@ -1,3 +1,5 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -8,6 +10,7 @@ import 'package:untitled/src/mongodb/stockData/Mongodbstocks.dart';
 import 'package:untitled/src/mongodb/topgainer/topgainer.dart';
 import 'package:untitled/src/mongodb/toplooser/toplooser.dart';
 import 'package:untitled/src/pages/news.dart';
+import 'package:untitled/src/mongodb/top10gainer/top10gainer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -254,6 +257,146 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+              ),
+              DataTable(
+                columns: [
+                  DataColumn(
+                    label: Text(
+                      'Company',
+                      style: GoogleFonts.poppins(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xFF8E8E8E),
+                      ),
+                    ),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'Price',
+                      style: GoogleFonts.poppins(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xFF8E8E8E),
+                      ),
+                    ),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'Change',
+                      style: GoogleFonts.poppins(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xFF8E8E8E),
+                      ),
+                    ),
+                  ),
+                ],
+                rows: [],
+              ),
+              //table builder widget
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  height: 350,
+                  width: 400,
+                  child: FutureBuilder(
+                    future: MongoDatabase.getTop10Gainer(),
+                    builder: (context, AsyncSnapshot snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        if (snapshot.hasData) {
+                          var totalData = snapshot.data.length;
+                          print("Total Data: " + totalData.toString());
+                          print("Data :" + snapshot.data.toString());
+                          return ListView.builder(
+                              itemCount: totalData,
+                              itemBuilder: (context, index) {
+                                return Row(
+                                  children: [
+                                    Container(
+                                      width: 150,
+                                      child: Text(
+                                        snapshot.data[index]['TRADING CODE'],
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(255, 0, 0, 0),
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Color.fromARGB(255, 0, 0, 0),
+                                          width: 20,
+                                        ),
+                                      ),
+                                      child: Text(
+                                        snapshot.data[index]['HIGH'],
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 22.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color.fromARGB(255, 0, 0, 0),
+                                        ),
+                                      ),
+                                    ),
+                                    Text(
+                                      snapshot.data[index]['% CHANGE'],
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 22.0,
+                                        fontWeight: FontWeight.w500,
+                                        color: Color.fromARGB(255, 0, 0, 0),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              });
+                        } else {
+                          return Text("No Data Found");
+                        }
+                      }
+                    },
+                  ),
+                ),
+              ),
+              DataTable(
+                columns: [
+                  DataColumn(
+                    label: Text(
+                      'Company',
+                      style: GoogleFonts.poppins(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xFF8E8E8E),
+                      ),
+                    ),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'Price',
+                      style: GoogleFonts.poppins(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xFF8E8E8E),
+                      ),
+                    ),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'Change',
+                      style: GoogleFonts.poppins(
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xFF8E8E8E),
+                      ),
+                    ),
+                  ),
+                ],
+                rows: [],
               ),
             ],
           ),
