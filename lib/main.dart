@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
         '/Signup': (context) => const Signup(),
         '/Dashboard': (context) => const Dashboard(),
       },
-      home: const Splashscreen(),
+      home: const Home(),
 
       //const Dashboard(value: "value"),
       debugShowCheckedModeBanner: false,

@@ -1,15 +1,15 @@
 // To parse this JSON data, do
 //
-//     final topGainer = topGainerFromJson(jsonString);
+//     final topLooser = topLooserFromJson(jsonString);
 
 import 'dart:convert';
 
-TopGainer topGainerFromJson(String str) => TopGainer.fromJson(json.decode(str));
+TopLooser topLooserFromJson(String str) => TopLooser.fromJson(json.decode(str));
 
-String topGainerToJson(TopGainer data) => json.encode(data.toJson());
+String topLooserToJson(TopLooser data) => json.encode(data.toJson());
 
-class TopGainer {
-  TopGainer({
+class TopLooser {
+  TopLooser({
     required this.empty,
     required this.tradingCode,
     required this.closep,
@@ -27,7 +27,7 @@ class TopGainer {
   String ycp;
   String change;
 
-  factory TopGainer.fromJson(Map<String, dynamic> json) => TopGainer(
+  factory TopLooser.fromJson(Map<String, dynamic> json) => TopLooser(
         empty: json["#"],
         tradingCode: json["TRADING CODE"],
         closep: json["CLOSEP*"],
