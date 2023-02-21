@@ -45,6 +45,7 @@ class _LoginState extends State<Login> {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
+                  
                   Container(
                     margin: EdgeInsets.only(top: 50),
                     padding: EdgeInsets.only(left: 20),
@@ -57,6 +58,10 @@ class _LoginState extends State<Login> {
                       borderRadius: BorderRadius.only(
                         topRight: Radius.circular(15),
                         topLeft: Radius.circular(15),
+                      ),
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 1,
                       ),
                     ),
                     child: TextField(
@@ -80,6 +85,10 @@ class _LoginState extends State<Login> {
                       borderRadius: BorderRadius.only(
                         bottomRight: Radius.circular(15),
                         bottomLeft: Radius.circular(15),
+                      ),
+                      border: Border.all(
+                        color: Colors.grey,
+                        width: 1,
                       ),
                     ),
                     child: TextField(

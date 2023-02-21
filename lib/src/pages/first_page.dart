@@ -40,37 +40,84 @@ class _SplashscreenState extends State<Splashscreen> {
                         children: [
                           Icon(Icons.developer_board, color: Color(0xFF126172)),
                           SizedBox(width: 10),
-                          Text('About Developers'
+                          Text('Developers'
                           ),
                         ],
                       ),
                     ],
                   ),
                 ),
-
-                PopupMenuItem(
-                  child: Text('About App'),
+                 PopupMenuItem(
                   value: 2,
-                ),
-                PopupMenuItem(
-                  child: Text('Feedback'
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.apps, color: Color(0xFF126172)),
+                          SizedBox(width: 10),
+                          Text('About App'),
+                        ],
+                      ),
+                    ],
                   ),
-                  value: 2,
+                ),
+                 PopupMenuItem(
+                  value: 3,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.people, color: Color(0xFF126172)),
+                          SizedBox(width: 10),
+                          Text('Supervisors'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                 PopupMenuItem(
+                  value: 4,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.no_encryption_rounded, color: Color(0xFF126172)),
+                          SizedBox(width: 10),
+                          Text('Licences'),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 PopupMenuItem(
-                  child: Text('Licences'),
-                  value: 2,
-                ),
-                PopupMenuItem(
-                  child: Text('Exit'),
-                  value: 2,
+                  value: 5,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(Icons.feedback, color: Color(0xFF126172)),
+                          SizedBox(width: 10),
+                          Text('Feedback'),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ],
               onSelected: (value) {
                 if (value == 1) {
-                  Navigator.pushNamed(context, '/Login');
+                  Navigator.pushNamed(context, '/Developer');
                 } else if (value == 2) {
-                  Navigator.pushNamed(context, '/Signup');
+                  Navigator.pushNamed(context, '/App');
+                }
+                else if (value == 3) {
+                  Navigator.pushNamed(context, '/Supervisor');
+                }
+                else if (value == 4) {
+                  Navigator.pushNamed(context, '/Licence');
+                }
+                else if (value == 5) {
+                  Navigator.pushNamed(context, '/Feedback');
                 }
               },
             ),
