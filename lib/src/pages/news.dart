@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/src/mongodb/connection/mongodb.dart';
+import 'package:untitled/src/mongodb/stockData/Mongodbstocks.dart';
 
 import '../mongodb/news/mogodbmodelnews.dart';
 

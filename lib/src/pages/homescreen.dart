@@ -1,5 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -20,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  DocumentSnapshot? variable;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       //     backgroundColor: Colors.white,
       //   ),
       // ),
+
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -51,8 +54,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       alignment: const AlignmentDirectional(0, 0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
-                        child: Image.network(
-                          'https://picsum.photos/seed/75/600',
+                        child: 
+                        Image.network(
+                          'https://pps.whatsapp.net/v/t61.24694-24/321233402_1275695943028531_3863014530715446454_n.jpg?ccb=11-4&oh=01_AdQAdxXYlu53wLpZ9UqnhGqTM8mVf3uFxyu2-X6LfDiHRg&oe=6409FFBC',
                           width: 50,
                           height: 50,
                           // fit: BoxFit.cover,
@@ -74,93 +78,148 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(35, 0, 0, 0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Align(
-                      alignment: const AlignmentDirectional(-0.72, 0),
-                      child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(0, 1, 75, 0),
-                        child: Text(
-                          '6508.00',
-                          style: GoogleFonts.poppins(
-                            fontSize: 26.0,
-                            fontWeight: FontWeight.w700,
-                            color: const Color(0xFF3FBFA0),
+                child: FutureBuilder(
+                  future: FirebaseFirestore.instance
+                      .collection('Graph')
+                      .doc('MEeruEJPpeY02qfMFut5')
+                      .get(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      variable = snapshot.data as DocumentSnapshot;
+                      final Map<String, dynamic> quad =
+                          variable!.data() as Map<String, dynamic>;
+                      return Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: const AlignmentDirectional(-0.72, 0),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0, 1, 75, 0),
+                              child: Text(
+                                quad['Index'].toString(),
+                                style: GoogleFonts.poppins(
+                                  fontSize: 26.0,
+                                  fontWeight: FontWeight.w700,
+                                  color: const Color(0xFF3FBFA0),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: const AlignmentDirectional(0.7, -0.25),
-                      child: Text(
-                        '+51.39 ',
-                        style: GoogleFonts.poppins(
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.w500,
-                          color: const Color(0xFF8E8E8E),
-                        ),
-                      ),
-                    ),
-                    Text(
-                      '(0.79%)',
-                      style: GoogleFonts.poppins(
-                        fontSize: 22.0,
-                        fontWeight: FontWeight.w500,
-                        color: const Color(0xFF3FBFA0),
-                      ),
-                    ),
-                  ],
+                          Align(
+                            alignment: const AlignmentDirectional(0.7, -0.25),
+                            child: Text(
+                              quad['gain/loose'].toString(),
+                              style: GoogleFonts.poppins(
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.w500,
+                                color: const Color(0xFF8E8E8E),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            quad['percentage'].toString(),
+                            style: GoogleFonts.poppins(
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.w500,
+                              color: const Color(0xFF3FBFA0),
+                            ),
+                          ),
+                        ],
+                      );
+                    } else {
+                      return const CircularProgressIndicator();
+                    }
+                  },
                 ),
               ),
               SizedBox(
                 height: 200,
                 width: 350,
-                child: LineChart(
-                  LineChartData(
-                    lineTouchData: LineTouchData(
-                      enabled: false,
-                    ),
-                    gridData: FlGridData(
-                      show: false,
-                    ),
-                    titlesData: FlTitlesData(
-                      show: false,
-                    ),
-                    borderData: FlBorderData(
-                      show: false,
-                    ),
-                    minX: 0,
-                    maxX: 11,
-                    minY: 6000,
-                    maxY: 7000,
-                    lineBarsData: [
-                      LineChartBarData(
-                        spots: [
-                          const FlSpot(0, 6500),
-                          const FlSpot(2.6, 6579),
-                          const FlSpot(4.9, 6109),
-                          const FlSpot(6.8, 6259),
-                          const FlSpot(8, 6629),
-                          const FlSpot(9.5, 6500),
-                          const FlSpot(11, 6245),
-                        ],
-                        isCurved: true,
-                        color: const Color(0xFFA4FCBA),
-                        barWidth: 1,
-                        isStrokeCapRound: true,
-                        dotData: FlDotData(
-                          show: false,
-                        ),
-                        belowBarData: BarAreaData(
-                          show: true,
-                          color: const Color(0xFFA4FCBA),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                child: FutureBuilder(
+                    future: FirebaseFirestore.instance
+                        .collection('Graph')
+                        .doc('Lchs4Glk8uqc8BblQjlm')
+                        .get(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        variable = snapshot.data as DocumentSnapshot;
+                        final Map<String, dynamic> quad =
+                            variable!.data() as Map<String, dynamic>;
+
+                        //get the spots from the firebase cloudstore
+                        return LineChart(
+                          LineChartData(
+                            lineTouchData: LineTouchData(
+                              enabled: false,
+                            ),
+                            gridData: FlGridData(
+                              show: false,
+                            ),
+                            titlesData: FlTitlesData(
+                              show: false,
+                            ),
+                            borderData: FlBorderData(
+                              show: false,
+                            ),
+                            minX: 0,
+                            maxX: 18,
+                            minY: 6000,
+                            maxY: 7000,
+                            lineBarsData: [
+                              LineChartBarData(
+                                spots: [
+                                  //get the spots from the firebase cloudstore
+
+                                  FlSpot(quad['x1']!.toDouble(),
+                                      quad['y1']!.toDouble()),
+                                  FlSpot(quad['x2']!.toDouble(),
+                                      quad['y2']!.toDouble()),
+                                  FlSpot(quad['x3']!.toDouble(),
+                                      quad['y3']!.toDouble()),
+                                  FlSpot(quad['x4']!.toDouble(),
+                                      quad['y4']!.toDouble()),
+                                  FlSpot(quad['x5']!.toDouble(),
+                                      quad['y5']!.toDouble()),
+                                  FlSpot(quad['x6']!.toDouble(),
+                                      quad['y6']!.toDouble()),
+                                  FlSpot(quad['x7']!.toDouble(),
+                                      quad['y7']!.toDouble()),
+                                  FlSpot(quad['x8']!.toDouble(),
+                                      quad['y8']!.toDouble()),
+                                  FlSpot(quad['x9']!.toDouble(),
+                                      quad['y9']!.toDouble()),
+                                  FlSpot(quad['x10']!.toDouble(),
+                                      quad['y10']!.toDouble()),
+
+                                  // const FlSpot(2.6, 6579),
+                                  // const FlSpot(4.9, 6109),
+                                  // const FlSpot(6.8, 6259),
+                                  // const FlSpot(8, 6629),
+                                  // const FlSpot(9.5, 6500),
+                                  // const FlSpot(11, 6245),
+                                ],
+                                isCurved: true,
+                                color: const Color(0xFFA4FCBA),
+                                barWidth: 1,
+                                isStrokeCapRound: true,
+                                dotData: FlDotData(
+                                  show: false,
+                                ),
+                                belowBarData: BarAreaData(
+                                  show: true,
+                                  color: const Color(0xFFA4FCBA),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      } else {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    }),
               ),
               const SizedBox(height: 10),
               Align(
@@ -667,8 +726,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return [
       const DataColumn(label: Text('Index')),
       const DataColumn(label: Text('Value')),
-      const DataColumn(label: Text('Author')),
-      const DataColumn(label: Text('Author'))
+      const DataColumn(label: Text('Change')),
+      const DataColumn(label: Text('Change%'))
     ];
   }
 

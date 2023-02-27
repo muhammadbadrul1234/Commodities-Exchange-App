@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
   int currentIndex = 0;
   final screens = [
     HomeScreen(),
-    Signup(),
+    //Signup(),
     MongoDBNewsPage(),
     MongoDBStockDataPage(),
     InvestmentPage(),
@@ -65,14 +65,14 @@ class _HomeState extends State<Home> {
                 label: 'Home',
                 backgroundColor: Color(0xFF126172),
               ),
-              const BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.search_rounded,
-                  color: Colors.white,
-                ),
-                label: 'Search',
-                backgroundColor: Color(0xFF126172),
-              ),
+              // const BottomNavigationBarItem(
+              //   icon: Icon(
+              //     Icons.search_rounded,
+              //     color: Colors.white,
+              //   ),
+              //   label: 'Search',
+              //   backgroundColor: Color(0xFF126172),
+              // ),
               const BottomNavigationBarItem(
                 icon: Icon(
                   Icons.newspaper_rounded,

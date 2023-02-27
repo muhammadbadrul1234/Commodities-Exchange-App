@@ -163,7 +163,7 @@ class AboutDeveloper extends StatelessWidget {
               SizedBox(height: 60),
                 CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage('assets/images/Badrul.jpeg'),
+                backgroundImage: AssetImage('assets/images/mun.jpeg'),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10, left: 20, right: 20),
@@ -196,7 +196,7 @@ class AboutDeveloper extends StatelessWidget {
               SizedBox(height: 40),
                 CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage('assets/images/Badrul.jpeg'),
+                backgroundImage: AssetImage('assets/images/naf.jpeg'),
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10, left: 25, right: 25),

@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:untitled/src/pages/login/login_page.dart';
@@ -34,6 +36,7 @@ class _SignupState extends State<Signup> {
                 if (!isKeyboard)
                   Image(
                     image: AssetImage('assets/images/DSE_logo.png'),
+                    
                     height: 169,
                   ),
                 if (!isKeyboard) SizedBox(height: 10),
@@ -235,24 +238,24 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 //check the box to agree our terms and conditions
-                Container(
-                  margin: EdgeInsets.only(top: 10),
-                  child: Row(
-                    children: [
-                      Checkbox(
-                        value: false,
-                        onChanged: (value) {},
-                      ),
-                      Text(
-                        'I agree to the Terms and Conditions',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // Container(
+                //   margin: EdgeInsets.only(top: 10),
+                //   child: Row(
+                //     children: [
+                //       Checkbox(
+                //         value: false,
+                //         onChanged: (value) {},
+                //       ),
+                //       Text(
+                //         'I agree to the Terms and Conditions',
+                //         style: GoogleFonts.poppins(
+                //           fontSize: 12.0,
+                //           fontWeight: FontWeight.w600,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
                 //sign up button
                 Container(
                   margin: EdgeInsets.only(top: 10),
@@ -280,6 +283,7 @@ class _SignupState extends State<Signup> {
                       style: GoogleFonts.poppins(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w700,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -299,7 +303,7 @@ class _SignupState extends State<Signup> {
         .createUserWithEmailAndPassword(
             email: emailController.text, password: passwordController.text)
         .then((value) {
-          firebaseauth.currentUser!.updateDisplayName(nameController.text);
+      firebaseauth.currentUser!.updateDisplayName(nameController.text);
       final firestoreInstance = FirebaseFirestore.instance;
       firestoreInstance
           .collection("Users")

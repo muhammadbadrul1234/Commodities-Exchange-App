@@ -1,20 +1,24 @@
+// ignore_for_file: unnecessary_import
+
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:untitled/src/investment/dataset.dart';
 
 class Investment extends StatelessWidget {
+  const Investment({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(0xFF126172),
+          backgroundColor: const Color(0xFF126172),
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
+            icon: const Icon(Icons.arrow_back_ios),
             onPressed: () => Navigator.pop(context),
           ),
-          title: Text("Investment tools"),
+          title: const Text("Investment tools"),
         ),
         body: Stack(children: [
           Align(
@@ -22,7 +26,7 @@ class Investment extends StatelessWidget {
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: 150,
-              color: Color(0xFF126172),
+              color: const Color(0xFF126172),
             ),
           ),
           Align(
@@ -30,7 +34,7 @@ class Investment extends StatelessWidget {
             child: Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height - 100,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20),
@@ -38,26 +42,28 @@ class Investment extends StatelessWidget {
             ),
           ),
           Column(
-            children: [Market(), Recommended(), Return()],
+            children: const [Market(), Recommended(), Return()],
           )
         ]));
   }
 }
 
 class Return extends StatelessWidget {
+  const Return({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(1),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: [
+        children: const [
           Text("Return on Investment",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           SizedBox(
             height: 15,
           ),
-          Graph()
+          //Graph(),
         ],
       ),
     );
@@ -65,9 +71,11 @@ class Return extends StatelessWidget {
 }
 
 class Graph extends StatelessWidget {
+  const Graph({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 120,
       child: LineChart(LineChartData(
           minX: 0,
@@ -76,41 +84,6 @@ class Graph extends StatelessWidget {
           maxY: 12,
           gridData: FlGridData(show: false),
           borderData: FlBorderData(show: false),
-          titlesData: FlTitlesData(
-              //leftTitles: SideTitles(showTitles: false),
-              // bottomTitles: SideTitles(showTitles: true,
-              //   getTextStyles: (value) => TextStyle(color: Color(0xFF008CFF),fontWeight: FontWeight.bold,fontSize: 16),
-              //     getTitles: (value){
-              //       switch(value.toInt()){
-              //         case 1:
-              //           return 'J';
-              //         case 2:
-              //           return 'F';
-              //         case 3:
-              //           return 'M';
-              //         case 4:
-              //           return 'A';
-              //         case 5:
-              //           return 'M';
-              //         case 6:
-              //           return 'J';
-              //         case 7:
-              //           return 'J';
-              //         case 8:
-              //           return 'A';
-              //         case 9:
-              //           return 'S';
-              //         case 10:
-              //           return 'O';
-              //         case 11:
-              //           return 'N';
-              //         case 12:
-              //           return 'D';
-              //       }
-              //       return '';
-              //     }
-              // )
-              ),
           lineBarsData: [
             LineChartBarData(
                 isCurved: true,
@@ -124,19 +97,19 @@ class Graph extends StatelessWidget {
                   show: true,
                 ),
                 spots: [
-                  FlSpot(0, 0),
-                  FlSpot(1, 3),
-                  FlSpot(2, 4),
-                  FlSpot(3, 6),
-                  FlSpot(4, 4),
-                  FlSpot(5, 6),
-                  FlSpot(6, 7),
-                  FlSpot(7, 8),
-                  FlSpot(8, 7),
-                  FlSpot(9, 9),
-                  FlSpot(10, 6),
-                  FlSpot(11, 8),
-                  FlSpot(12, 9),
+                  const FlSpot(0, 0),
+                  const FlSpot(1, 3),
+                  const FlSpot(2, 4),
+                  const FlSpot(3, 6),
+                  const FlSpot(4, 4),
+                  const FlSpot(5, 6),
+                  const FlSpot(6, 7),
+                  const FlSpot(7, 8),
+                  const FlSpot(8, 7),
+                  const FlSpot(9, 9),
+                  const FlSpot(10, 6),
+                  const FlSpot(11, 8),
+                  const FlSpot(12, 9),
                 ])
           ])),
     );
@@ -144,15 +117,17 @@ class Graph extends StatelessWidget {
 }
 
 class Recommended extends StatelessWidget {
+  const Recommended({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: const [
               Text("Recommended for you",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Text(
@@ -191,8 +166,9 @@ class RecommendedItem extends StatelessWidget {
   final String subtitle;
   final String value;
   final String icon;
-  RecommendedItem(
-      {required this.name,
+  const RecommendedItem(
+      {super.key,
+      required this.name,
       required this.subtitle,
       required this.value,
       required this.icon});
@@ -200,10 +176,10 @@ class RecommendedItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
-      margin: EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           border: Border.all(width: 0.2)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -214,36 +190,34 @@ class RecommendedItem extends StatelessWidget {
                 width: 60,
                 height: 60,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     image: DecorationImage(image: AssetImage(icon))),
               ),
               Container(
-                margin: EdgeInsets.only(left: 15),
+                margin: const EdgeInsets.only(left: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       name,
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       subtitle,
-                      style: TextStyle(color: Colors.black54),
+                      style: const TextStyle(color: Colors.black54),
                     )
                   ],
                 ),
               )
             ],
           ),
-          Container(
-            child: Text(
-              value,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
-              ),
+          Text(
+            value,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.green,
             ),
           )
         ],
@@ -253,15 +227,17 @@ class RecommendedItem extends StatelessWidget {
 }
 
 class Market extends StatelessWidget {
+  const Market({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
+            children: const [
               Text("Currency market",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               Text(
@@ -270,13 +246,13 @@ class Market extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
+              children: const [
                 Currency(
                   currency: "EUR/USD",
                   value: "14,321",
@@ -301,36 +277,36 @@ class Market extends StatelessWidget {
 class Currency extends StatelessWidget {
   final String currency;
   final String value;
-  Currency({required this.currency, required this.value});
+  const Currency({super.key, required this.currency, required this.value});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(15),
+      margin: const EdgeInsets.all(15),
       width: 120,
       height: 90,
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-                color: Color(0xFF333333).withOpacity(0.14),
+                color: const Color(0xFF333333).withOpacity(0.14),
                 blurRadius: 2,
-                offset: Offset(0, 2))
+                offset: const Offset(0, 2))
           ],
-          borderRadius: BorderRadius.all(Radius.circular(20)),
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
           color: Colors.white),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             currency,
-            style: TextStyle(color: Colors.black54),
+            style: const TextStyle(color: Colors.black54),
           ),
-          SizedBox(
+          const SizedBox(
             height: 5,
           ),
           Text(
             value,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           )
         ],
       ),

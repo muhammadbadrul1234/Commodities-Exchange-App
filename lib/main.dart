@@ -1,3 +1,4 @@
+//documentation done by: Badrul
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/src/investment/investmentPage.dart';
@@ -8,7 +9,9 @@ import 'package:untitled/src/pages/about/aboutdevelopers.dart';
 import 'package:untitled/src/pages/about/aboutsupervisor.dart';
 import 'package:untitled/src/pages/about/feedback.dart';
 import 'package:untitled/src/pages/about/licence.dart';
+import 'package:untitled/src/pages/chatroom.dart';
 import 'package:untitled/src/pages/homescreen.dart';
+import 'package:untitled/src/pages/login/completeprofile.dart';
 import 'package:untitled/src/pages/news.dart';
 import 'package:untitled/src/ratingPage/ratingUs.dart';
 import 'package:untitled/src/widgets/linechart_1/home.dart';
@@ -50,10 +53,8 @@ class MyApp extends StatelessWidget {
         '/App': (context) => const AboutApp(),
         '/Licence': (context) => const License(),
         '/Feedback': (context) => const FeedbackPage(),
-      
-
       },
-      home: const Splashscreen(),
+      home: const Home(),
 
       //const Dashboard(value: "value"),
       debugShowCheckedModeBanner: false,
